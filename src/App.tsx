@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import '/src/styles/App.scss'
+import '/src/styles/App.scss';
+import Home from './pages/home/Home';
+import Nav from './components/nav/Nav';
+import Jlpt_5 from './pages/jlpt_5/Jlpt_5';
 
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+
+export default function App() {
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 425px)" });
+  const isBiggerThanMobile = useMediaQuery({ query: "(min-width: 426px)" });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      {isBiggerThanMobile && <Nav />}
+      <div className="main-pages">
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/jlpt5" element={<Jlpt_5 />}/>
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      {isMobileScreen && <Nav />}
+    </BrowserRouter>
   )
 }
-
-export default App

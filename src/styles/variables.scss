@@ -1,0 +1,18 @@
+// colors
+$white: #faf3ff;
+$black: #0a0012;
+$light-purple: #bf99db;
+$purple: #663c84;
+$dark-purple: #27083e;
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

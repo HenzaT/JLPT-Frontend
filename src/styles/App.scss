@@ -1,1 +1,16 @@
+@use 'variables.scss' as vars;
 
+* {
+  margin: 0;
+  padding: 0;
+  background: vars.$white;
+}
+
+a {
+  text-decoration: none;
+  background: transparent;
+}
+
+.main-pages {
+  height: 90dvh;
+}

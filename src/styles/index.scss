@@ -1,1 +1,9 @@
 @use 'variables.scss' as vars;
+
+// components styles
+@use '/src/components/card/Card.scss';
+@use '/src/components/nav/Nav.scss';
+
+// pages styles
+@use '/src/pages/home/Home.scss';
+@use '/src/pages/jlpt_5/Jlpt_5.scss';
