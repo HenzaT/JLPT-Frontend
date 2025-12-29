@@ -1,14 +1,14 @@
-import '/src/styles/App.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useScreenSize } from './responsive-breakpoints/responsive';
+
 import Home from './pages/home/Home';
 import Nav from './components/nav/Nav';
-import Jlpt_5 from './pages/jlpt_5/Jlpt_5';
+import JlptN5 from './pages/jlptN5/JlptN5';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
+import '/src/styles/App.scss';
 
 export default function App() {
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 425px)" });
-  const isBiggerThanMobile = useMediaQuery({ query: "(min-width: 426px)" });
+  const { isMobileScreen, isBiggerThanMobile } = useScreenSize();
 
   return (
     <BrowserRouter>
@@ -16,7 +16,7 @@ export default function App() {
       <div className="main-pages">
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/jlpt5" element={<Jlpt_5 />}/>
+          <Route path="/jlpt5" element={<JlptN5 />}/>
         </Routes>
       </div>
       {isMobileScreen && <Nav />}

@@ -1,0 +1,17 @@
+@use '/src/styles/variables.scss' as vars;
+
+.card {
+  background-color: vars.$card-light;
+  border-radius: 30px;
+  margin-top: 2rem;
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  h3 {
+    font-size: 6rem;
+    font-weight: 500;
+    text-align: center;
+  }
+}

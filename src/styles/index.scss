@@ -2,8 +2,12 @@
 
 // components styles
 @use '/src/components/card/Card.scss';
+@use '/src/components/jlpt-page/JlptPage.scss';
 @use '/src/components/nav/Nav.scss';
 
 // pages styles
 @use '/src/pages/home/Home.scss';
-@use '/src/pages/jlpt_5/Jlpt_5.scss';
+@use '/src/pages/jlptN5/JlptN5.scss';
+
+// general styling
+@use '/src/styles/icons.scss';

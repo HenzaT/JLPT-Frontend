@@ -1,9 +1,10 @@
 // colors
-$white: #faf3ff;
-$black: #0a0012;
+$white:        #eee9f1;
+$card-light:   #ffffff;
+$black:        #0a0012;
 $light-purple: #bf99db;
-$purple: #663c84;
-$dark-purple: #27083e;
+$purple:       #663c84;
+$dark-purple:  #27083e;
 
 @mixin flex-row {
   display: flex;
