@@ -1,0 +1,9 @@
+@use '/src/styles/variables.scss' as vars;
+
+span.dividing-line {
+  display: block;
+  background-color: vars.$black;
+  height: 1px;
+  width: 70%;
+  margin: 0.7rem auto;
+}

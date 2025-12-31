@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import jlpt5 from '../../content/jlpt5.json';
 import Card from '../../components/card/Card';
+import { useKanji } from '../../contexts/KanjiContext';
 
 export default function Jlpt_5() {
   const [ kanji, setKanji ]     = useState([]);
   const [ loading, setLoading ] = useState<boolean>(true);
   const [ error, setError ]     = useState<null>(null);
+  const { getCounts } = useKanji();
 
   const apiUrl = import.meta.env.VITE_API_URL as string | undefined;
 
@@ -33,10 +35,9 @@ export default function Jlpt_5() {
     <section>
       <span className="top-text">
         <h1>{jlpt5.title}</h1>
-        <h2>{kanjiObj.id} / {kanji.length}</h2>
+        <h2>{kanjiObj.id} / {getCounts(5)}</h2>
       </span>
       {<Card
-        level={"5"}
         kanjiObj={kanjiObj}
       />}
     </section>

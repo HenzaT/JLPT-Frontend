@@ -12,14 +12,14 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      {isBiggerThanMobile && <Nav />}
+      {/* {isBiggerThanMobile && <Nav />} */}
       <div className="main-pages">
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/jlpt5" element={<JlptN5 />}/>
+          <Route path="/N5" element={<JlptN5 />}/>
         </Routes>
       </div>
-      {isMobileScreen && <Nav />}
+      {/* {isMobileScreen && <Nav />} */}
     </BrowserRouter>
   )
 }

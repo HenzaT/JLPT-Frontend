@@ -8,13 +8,13 @@ export default function Nav() {
   )
 
   return (
-    <nav>
+    <nav className='main-nav'>
       <Link to="/"><img src="/public/icons/house.svg" alt="house icon" className="icon" /></Link>
-      {LinkToJlpt("/jlpt5", "5-circle.svg", 5)}
-      {LinkToJlpt("/jlpt4", "4-circle.svg", 4)}
-      {LinkToJlpt("/jlpt3", "3-circle.svg", 3)}
-      {LinkToJlpt("/jlpt2", "2-circle.svg", 2)}
-      {LinkToJlpt("/jlpt1", "1-circle.svg", 1)}
+      {LinkToJlpt("/N5", "5-circle.svg", 5)}
+      {LinkToJlpt("/N4", "4-circle.svg", 4)}
+      {LinkToJlpt("/N3", "3-circle.svg", 3)}
+      {LinkToJlpt("/N2", "2-circle.svg", 2)}
+      {LinkToJlpt("/N1", "1-circle.svg", 1)}
     </nav>
   )
 }

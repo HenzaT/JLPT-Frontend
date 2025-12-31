@@ -1,3 +1,5 @@
+import { DividingLine } from "../dividing-line/DividingLine";
+
 interface CardType {
   kanjiObj: any
 }
@@ -5,33 +7,31 @@ interface CardType {
 export default function Card(props: CardType) {
   const { kanjiObj } = props;
 
-  const kunReadings = () => {
-    if (kanjiObj.kun_readings.length >= 1) {
-      return (
-        kanjiObj.kun_readings.map((reading: string, i: number) => (
-          <>
-            <p key={i}>{reading}</p>
-            <p>•</p>
-          </>
-        ))
-      )
-    } else {
-      return (
-        <p>{kanjiObj.kun_readings}</p>
-      )
+  const splitArray = (array: string[]) => {
+    if (array.length > 1) {
+      return (<p>{array.join(" • ")}</p>)
+    }
+    if (array.length === 1) {
+      return (<p>{array}</p>)
     }
   }
 
   return (
-    <div className="card">
+    <article className="card">
       <div className="card-body">
         <h3>{kanjiObj.kanji}</h3>
         <span className="row-text">
-          {kunReadings()}
+          {splitArray(kanjiObj.kun_readings)}
         </span>
-        <p>{kanjiObj.on_readings}</p>
-        <p>{kanjiObj.meanings}</p>
+        {DividingLine()}
+        <span className="row-text">
+          {splitArray(kanjiObj.on_readings)}
+        </span>
+        {DividingLine()}
+        <span className="row-text">
+          {splitArray(kanjiObj.meanings)}
+        </span>
       </div>
-    </div>
+    </article>
   )
 }

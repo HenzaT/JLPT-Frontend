@@ -1,6 +1,6 @@
 @use '/src/styles/variables.scss' as vars;
 
-.card {
+article.card {
   background-color: vars.$card-light;
   border-radius: 30px;
   margin-top: 2rem;

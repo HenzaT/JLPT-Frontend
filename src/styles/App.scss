@@ -16,6 +16,7 @@ html {
 a {
   text-decoration: none;
   background: transparent;
+  color: vars.$black;
 }
 
 .main-pages {
@@ -23,7 +24,7 @@ a {
 }
 
 section {
-  padding: 1rem;
+  padding: 2rem 1rem;
 
   .top-text {
     @include vars.flex-row;
@@ -34,5 +35,6 @@ section {
   .row-text {
     @include vars.flex-row;
     gap: 0.5rem;
+    justify-content: center;
   }
 }
