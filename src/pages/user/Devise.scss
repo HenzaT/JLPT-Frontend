@@ -1,0 +1,5 @@
+@use '/src/styles/variables.scss' as vars;
+
+form.login, form.signup {
+  @include vars.flex-col;
+}

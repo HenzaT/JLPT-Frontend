@@ -1,0 +1,21 @@
+@use '/src/styles/variables.scss' as vars;
+
+button.user-modal {
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid vars.$black;
+
+  img {
+    width: 1.5rem;
+    padding: 3px;
+  }
+}
+
+dialog {
+  width: 50%;
+  margin: auto;
+}
+
+::backdrop {
+  filter: blur(10px);
+}

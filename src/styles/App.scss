@@ -24,7 +24,7 @@ a {
 }
 
 section {
-  padding: 2rem 1rem;
+  padding: 0 1rem;
 
   .top-text {
     @include vars.flex-row;
@@ -37,4 +37,9 @@ section {
     gap: 0.5rem;
     justify-content: center;
   }
+}
+
+button {
+  border: vars.$black;
+  padding: 3px;
 }

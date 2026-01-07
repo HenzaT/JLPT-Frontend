@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import home from '../../content/home.json';
+import { Link } from 'react-router-dom';
 import { useKanji } from '../../contexts/KanjiContext';
 
 export default function Home() {
@@ -18,7 +18,6 @@ export default function Home() {
 
   return (
     <section className="home">
-      <h1>{home.title}</h1>
       <nav className="link-cards">
         {linkCard('/N5', home['link-title-N5'], getCounts(5))}
         {linkCard('/N4', home['link-title-N4'], getCounts(4))}

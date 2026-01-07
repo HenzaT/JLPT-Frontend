@@ -3,7 +3,7 @@
 nav.link-cards {
   @include vars.flex-col;
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
 
   .link-card {
     background: vars.$card-light;

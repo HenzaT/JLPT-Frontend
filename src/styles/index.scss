@@ -3,12 +3,15 @@
 // components styles
 @use '/src/components/card/Card.scss';
 @use '/src/components/dividing-line/DividingLine.scss';
+@use '/src/components/header/Header.scss';
 @use '/src/components/jlpt-page/JlptPage.scss';
-@use '/src/components/nav/Nav.scss';
+// @use '/src/components/nav/Nav.scss';
+@use '/src/components/user-modal/UserModal.scss';
 
 // pages styles
 @use '/src/pages/home/Home.scss';
 @use '/src/pages/jlptN5/JlptN5.scss';
+@use '/src/pages/user/Devise.scss';
 
 // general styling
 @use '/src/styles/icons.scss';
