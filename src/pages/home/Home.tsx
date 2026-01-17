@@ -1,9 +1,9 @@
 import home from '../../content/home.json';
 import { Link } from 'react-router-dom';
-import { useKanji } from '../../contexts/KanjiContext';
+import { useKanjiCount } from '../../contexts/KanjiCountContext';
 
 export default function Home() {
-  const { getCounts, loading } = useKanji();
+  const { getCounts, loading } = useKanjiCount();
 
   if (loading) return null;
 
@@ -19,11 +19,11 @@ export default function Home() {
   return (
     <section className="home">
       <nav className="link-cards">
-        {linkCard('/N5', home['link-title-N5'], getCounts(5))}
-        {linkCard('/N4', home['link-title-N4'], getCounts(4))}
-        {linkCard('/N3', home['link-title-N3'], getCounts(3))}
-        {linkCard('/N2', home['link-title-N2'], getCounts(2))}
-        {linkCard('/N1', home['link-title-N1'], getCounts(1))}
+        {linkCard('/n5', home['link-title-N5'], getCounts(5))}
+        {linkCard('/n4', home['link-title-N4'], getCounts(4))}
+        {linkCard('/n3', home['link-title-N3'], getCounts(3))}
+        {linkCard('/n2', home['link-title-N2'], getCounts(2))}
+        {linkCard('/n1', home['link-title-N1'], getCounts(1))}
       </nav>
     </section>
   )

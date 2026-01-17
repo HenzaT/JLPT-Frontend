@@ -1,0 +1,13 @@
+@use '/src/styles/variables.scss' as vars;
+
+section.n5-index {
+  @include vars.flex-col;
+  align-items: normal;
+  // justify-content: center;
+  height: 80dvh;
+
+  .main-content {
+    @include vars.flex-col;
+    gap: 1rem;
+  }
+}

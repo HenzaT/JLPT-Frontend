@@ -1,28 +1,51 @@
-// get count of all kanji
-
+// get all kanji
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
-const KanjiContext = createContext(null);
+type Kanji = {
+  id: number,
+  jlpt: number,
+  kanji: string,
+  heisig_en: string,
+  kun_readings: string[],
+  on_readings: string[],
+  meanings: string[]
+}
+
+type KanjiContextType = {
+  kanji: Kanji[],
+  loading: boolean,
+  error: string | null
+}
+
+const KanjiContext= createContext<KanjiContextType | null>(null);
 
 export function KanjiProvider({ children }: { children: React.ReactNode }) {
-  const [counts, setCounts]     = useState<Record<number, number>>({});
+  const [ kanji, setKanji ]   = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [ error, setError ]   = useState<null>(null);
 
   const apiUrl = import.meta.env.VITE_API_URL as string | undefined;
 
   useEffect(() => {
-    axios.get(`${apiUrl}/counts`)
-      .then(response => setCounts(response.data))
-      .finally(() => setLoading(false))
-  }, [])
+    axios
+        .get(`${apiUrl}?jlpt=5`)
+        .then((response) => {
+          setKanji(response.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading(false);
+        });
+  }, []);
 
   return (
     <KanjiContext.Provider
       value={{
-        counts,
-        getCounts: (jlpt: number) => counts[jlpt],
-        loading
+        kanji,
+        loading,
+        error
       }}
     >
       {children}
@@ -32,5 +55,9 @@ export function KanjiProvider({ children }: { children: React.ReactNode }) {
 
 export function useKanji() {
   const context = useContext(KanjiContext);
+  if (!context) {
+    throw new Error('useKanji must be within KanjiProvider');
+  }
+
   return context;
 }

@@ -3,8 +3,9 @@
 // components styles
 @use '/src/components/card/Card.scss';
 @use '/src/components/dividing-line/DividingLine.scss';
-@use '/src/components/header/Header.scss';
+@use '/src/components/main-nav/MainNav.scss';
 @use '/src/components/jlpt-page/JlptPage.scss';
+@use '/src/components/loading-element/LoadingElement.scss';
 // @use '/src/components/nav/Nav.scss';
 @use '/src/components/user-modal/UserModal.scss';
 
@@ -12,6 +13,8 @@
 @use '/src/pages/home/Home.scss';
 @use '/src/pages/jlptN5/JlptN5.scss';
 @use '/src/pages/user/Devise.scss';
+@use '/src/pages/revise/Revise.scss';
 
 // general styling
+@use '/src/styles/button.scss';
 @use '/src/styles/icons.scss';

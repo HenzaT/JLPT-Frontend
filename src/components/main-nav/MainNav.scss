@@ -1,0 +1,9 @@
+@use '/src/styles/variables.scss' as vars;
+
+#main-nav {
+  @include vars.flex-row;
+  justify-content: space-between;
+  height: 10dvh;
+  margin: 1rem 1rem;
+  font-size: 2rem;
+}

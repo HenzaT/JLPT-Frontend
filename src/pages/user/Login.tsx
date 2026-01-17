@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import api from '../../api';
+import FormInput from './FormInput';
 
 const Login = () => {
   const [ email, setEmail ] = useState("");
@@ -18,23 +19,21 @@ const Login = () => {
   };
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        name="password"
-        id="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
-    </form>
+    <section>
+      <header className="form-header">
+        <h1>Login</h1>
+        <h2>Enter your email and password</h2>
+      </header>
+      <article className="card">
+        <form className="login" onSubmit={handleSubmit}>
+          {FormInput("email", "Email", "email", "jaysmith@example.com", email, setEmail, true)}
+          {FormInput("password", "Password", "password", "type password here", password, setPassword, true)}
+          <button type="submit" className="site-button">
+            Login
+          </button>
+        </form>
+      </article>
+    </section>
   );
 };
 

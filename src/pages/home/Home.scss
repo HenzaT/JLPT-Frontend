@@ -3,7 +3,6 @@
 nav.link-cards {
   @include vars.flex-col;
   gap: 2rem;
-  margin: 1rem 0;
 
   .link-card {
     background: vars.$card-light;
@@ -20,5 +19,11 @@ nav.link-cards {
     @include vars.flex-row;
     justify-content: space-between;
     padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  nav.link-cards {
+    @include vars.flex-row;
   }
 }

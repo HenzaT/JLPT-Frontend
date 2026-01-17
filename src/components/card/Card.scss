@@ -3,10 +3,11 @@
 article.card {
   background-color: vars.$card-light;
   border-radius: 30px;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  width: 95%;
 
   .card-body {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
   }
 
   h3 {

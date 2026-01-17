@@ -1,19 +1,33 @@
 @use '/src/styles/variables.scss' as vars;
+@use '/src/styles/keyframes.scss';
 
 button.user-modal {
   background: transparent;
   border-radius: 50%;
   border: 1px solid vars.$black;
+  cursor: pointer;
 
   img {
     width: 1.5rem;
     padding: 3px;
   }
+
+  img.shaken {
+    animation: shake;
+  }
 }
 
 dialog {
-  width: 50%;
+  width: 70%;
+  height: 50%;
+  border-radius: 30px;
   margin: auto;
+
+  .dialog-elements {
+    @include vars.flex-col;
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
 ::backdrop {

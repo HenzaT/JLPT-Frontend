@@ -1,45 +1,43 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import jlpt5 from '../../content/jlpt5.json';
 import Card from '../../components/card/Card';
+import LoadingElement from '../../components/loading-element/LoadingElement';
+import shuffleSvg from '../../../public/icons/shuffle.svg';
+
+import { useKanjiRandom } from '../../contexts/KanjiRandomContext';
+import { useKanjiCount } from '../../contexts/KanjiCountContext';
 import { useKanji } from '../../contexts/KanjiContext';
 
 export default function Jlpt_5() {
-  const [ kanji, setKanji ]     = useState([]);
-  const [ loading, setLoading ] = useState<boolean>(true);
-  const [ error, setError ]     = useState<null>(null);
-  const { getCounts } = useKanji();
-
-  const apiUrl = import.meta.env.VITE_API_URL as string | undefined;
-
-  useEffect(() => {
-    axios
-        .get(`${apiUrl}?jlpt=5`)
-        .then((response) => {
-          setKanji(response.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err.message);
-          setLoading(false);
-        });
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
-  const randomKanji = Math.floor(Math.random() * kanji.length);
-  const kanjiObj    = kanji[randomKanji];
+  const { getCounts } = useKanjiCount();
+  const { kanji } = useKanjiRandom()
+  const { loading } = useKanji()
 
   return (
-    <section>
-      <span className="top-text">
-        <h1>{jlpt5.title}</h1>
-        <h2>{kanjiObj.id} / {getCounts(5)}</h2>
-      </span>
-      {<Card
-        kanjiObj={kanjiObj}
-      />}
+    <section className="n5-index">
+      {loading ? (
+        <LoadingElement />
+      ) : (
+      <>
+        <header className="top-text">
+          <h1>{jlpt5.title}</h1>
+          <h2>{kanji.id} / {getCounts(5)}</h2>
+        </header>
+        <div className="main-content">
+          {<Card
+            kanjiObj={kanji}
+            isMainPage={true}
+          />}
+          <div className="buttons">
+            <Link to="/n5/revise" className="site-button">revise</Link>
+            <button onClick={useKanjiRandom} className="site-button round">
+              <img src={shuffleSvg} alt="shuffle arrows icon" className='shuffle' />
+            </button>
+          </div>
+        </div>
+      </>
+      )}
     </section>
   )
 }

@@ -1,5 +1,39 @@
 @use '/src/styles/variables.scss' as vars;
 
+header.form-header {
+  @include vars.flex-col;
+  gap: 1rem;
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+
 form.login, form.signup {
   @include vars.flex-col;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+
+  span.label-input {
+    @include vars.flex-col;
+    gap: 0.2rem;
+    width: 70%;
+  }
+
+  label {
+    font-size: 1.1rem;
+    align-self: flex-start;
+  }
+
+  input {
+    border: 2px solid vars.$dark-purple;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    background: white;
+    color: vars.$dark-purple;
+  }
 }

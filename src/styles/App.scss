@@ -32,14 +32,14 @@ section {
     margin: 0 0.5rem;
   }
 
+  .top-text button {
+    align-self: flex-end;
+  }
+
   .row-text {
     @include vars.flex-row;
     gap: 0.5rem;
     justify-content: center;
+    text-align: center;
   }
-}
-
-button {
-  border: vars.$black;
-  padding: 3px;
 }
