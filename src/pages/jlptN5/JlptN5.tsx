@@ -11,8 +11,13 @@ import { useKanji } from '../../contexts/KanjiContext';
 
 export default function Jlpt_5() {
   const { getCounts } = useKanjiCount();
-  const { kanji } = useKanjiRandom()
-  const { loading } = useKanji()
+  const { kanji, fetchRandomKanji } = useKanjiRandom();
+  const { loading } = useKanji();
+
+  function getRandomKanji() {
+    fetchRandomKanji();
+    console.log("clicked!")
+  }
 
   return (
     <section className="n5-index">
@@ -31,7 +36,7 @@ export default function Jlpt_5() {
           />}
           <div className="buttons">
             <Link to="/n5/revise" className="site-button">revise</Link>
-            <button onClick={useKanjiRandom} className="site-button round">
+            <button onClick={getRandomKanji} className="site-button round">
               <img src={shuffleSvg} alt="shuffle arrows icon" className='shuffle' />
             </button>
           </div>

@@ -8,22 +8,20 @@ import axios from 'axios';
 export default function Revise() {
   const { loading } = useKanji()
   const { kanji } = useKanjiRandom()
-  const [ tenKanji, setTenKanji ] = useState<Object[]>();
+  const [ tenKanji, setTenKanji ] = useState();
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
 
   const apiUrl = import.meta.env.VITE_API_URL as string | undefined;
 
-  const callTenKanji = () => {
-    useEffect(() => {
-      axios
-          .get(`${apiUrl}/get_ten?jlpt=5`)
-          .then((response) => {
-            setTenKanji(response.data)
-          })
-    }, [])
-    // need error catching
-    setIsClicked(true);
-  }
+  useEffect(() => {
+    axios
+        .get(`${apiUrl}/get_ten?jlpt=5`)
+        .then((response) => {
+          setTenKanji(response.data)
+        })
+  }, [])
+  // need error catching
+  // setIsClicked(true);
 
   console.log(tenKanji)
 
@@ -33,7 +31,6 @@ export default function Revise() {
     let skipped = [];
     skipped.push(kanji);
     console.log(skipped);
-
   }
 
   return (
@@ -54,7 +51,7 @@ export default function Revise() {
         ) : (
           <>
             <h2>Are you ready?</h2>
-            <button onClick={callTenKanji} className="site-button">I'm ready!</button>
+            <button onClick={() => setIsClicked(true)} className="site-button">I'm ready!</button>
           </>
         )}
       </header>

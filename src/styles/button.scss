@@ -9,7 +9,7 @@ button {
   border: 2px solid vars.$dark-purple;
   border-radius: 30px;
   padding: 5px 15px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 300;
   background: vars.$light-purple;
   color: vars.$dark-purple;
@@ -22,4 +22,15 @@ button {
 .buttons {
   @include vars.flex-row;
   gap: 1rem;
+}
+
+.show-hide-pwd {
+  @include vars.flex-col;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+
+  img {
+    width: 1.5rem;
+  }
 }

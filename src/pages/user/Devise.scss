@@ -1,24 +1,30 @@
 @use '/src/styles/variables.scss' as vars;
 
+section.form {
+  article.card {
+    width: 100%;
+  }
+}
+
 header.form-header {
   @include vars.flex-col;
   gap: 1rem;
 
   h2 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 }
 
 form.login, form.signup {
   @include vars.flex-col;
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1rem 0 2rem 0;
   padding: 1.5rem 0;
 
-  span.label-input {
+  .label-input {
     @include vars.flex-col;
     gap: 0.2rem;
-    width: 70%;
+    width: 80%;
   }
 
   label {
@@ -26,8 +32,8 @@ form.login, form.signup {
     align-self: flex-start;
   }
 
-  input {
-    border: 2px solid vars.$dark-purple;
+  input, .password-input {
+    border: 1.3px solid vars.$dark-purple;
     border-radius: 5px;
     width: 100%;
     padding: 5px;
@@ -35,5 +41,16 @@ form.login, form.signup {
     font-weight: 300;
     background: white;
     color: vars.$dark-purple;
+  }
+
+  input#password {
+    border: none;
+    padding-left: 0;
+  }
+
+  .password-input {
+    @include vars.flex-row;
+    align-items: center;
+    padding: 0 5px;
   }
 }

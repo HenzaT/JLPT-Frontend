@@ -7,7 +7,7 @@ const FormInput = (
   setValue: React.Dispatch<React.SetStateAction<string>>,
   required: boolean
 ) => (
-  <span className="label-input">
+  <div className="label-input">
     <label htmlFor={field}>{label}</label>
     <input
       type={type}
@@ -18,7 +18,7 @@ const FormInput = (
       onChange={e => setValue(e.target.value)}
       required={required}
     />
-  </span>
+  </div>
 )
 
 export default FormInput;

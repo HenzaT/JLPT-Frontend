@@ -23,7 +23,7 @@ const Signup = () => {
   };
 
   return (
-    <section>
+    <section className='form'>
       <header className="form-header">
         <h1>Sign up</h1>
         <h2>Enter your name, email and password</h2>

@@ -10,6 +10,7 @@ export function KanjiRandomProvider({ children }: { children: React.ReactNode })
 
   const apiUrl = import.meta.env.VITE_API_URL as string | undefined;
 
+  // const fetchRandomKanji = () => {
   useEffect(() => {
     axios
         .get(`${apiUrl}/random?jlpt=5`)
@@ -22,12 +23,29 @@ export function KanjiRandomProvider({ children }: { children: React.ReactNode })
           // setLoading(false)
         })
   }, [])
+  // }
+
+  const fetchRandomKanji = () => {
+    useEffect(() => {
+      axios
+          .get(`${apiUrl}/random?jlpt=5`)
+          .then((response) => {
+            setKanji(response.data)
+            // setLoading(false)
+          })
+          .catch((err) => {
+            setError(err.message)
+            // setLoading(false)
+          })
+    }, [])
+  }
 
   return (
     <KanjiRandomContext.Provider
       value={{
         kanji,
         // loading,
+        fetchRandomKanji,
         error
       }}
     >
